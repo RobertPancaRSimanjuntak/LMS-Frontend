@@ -9,15 +9,6 @@
                 <div class="p-4 justify-start items-center flex">
                     <div class="text-black text-base font-medium font-sansleading-tight">Nama Program</div>
                 </div>
-                <!-- <div class="p-4 border border-gray-200 justify-start items-center flex">
-                    <div class="text-black text-base font-medium font-sans leading-tight">Instruktur</div>
-                </div>
-                <div class="p-4 border border-gray-200 justify-start items-center  flex">
-                    <div class="text-black text-base font-medium font-sans leading-tight">Kehadiran</div>
-                </div>
-                <div class="p-4 border border-gray-200 justify-start items-center flex">
-                    <div class="text-black text-base font-medium font-sans leading-tight">Status</div>
-                </div> -->
             </div>
             <div class="w-full bg-gray-200 justify-start items-center inline-flex">
                 <div class="p-4 justify-start items-center gap-2.5 flex">

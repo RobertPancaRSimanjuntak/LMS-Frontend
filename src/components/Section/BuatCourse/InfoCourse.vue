@@ -60,7 +60,7 @@
         </div>
 
         <div class="flex justify-between mx-8 mt-4">
-            <button class="text-md bg-gray-50 border border-gray-200 py-2 px-4 text-sm rounded-md">Cancel</button>
+            <button @click="cancel" class="text-md bg-gray-50 border border-gray-200 py-2 px-4 text-sm rounded-md">Cancel</button>
             <button @click="saveNext" class="text-md bg-blue-600 text-white py-2 px-6 text-md rounded-md">Next</button>
         </div>
     </div>
@@ -81,6 +81,10 @@ export default {
         },
     },
     methods: {
+        cancel() {
+            // Logika penyimpanan Anda di sini
+            this.$router.push({ name: 'CreateCourse' });
+        },
         save() {
             // Logika penyimpanan Anda di sini
             console.log("Saved!");

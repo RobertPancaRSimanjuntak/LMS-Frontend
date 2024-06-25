@@ -174,7 +174,7 @@ export default {
     methods: {
         previous() {
             // Logika penyimpanan Anda di sini
-            this.$router.push({ name: 'InfoProgram' });
+            this.$router.push({ name: 'InfoCourse' });
         },
         submit() {
             // Logika penyimpanan Anda di sini

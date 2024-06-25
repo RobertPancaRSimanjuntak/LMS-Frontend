@@ -90,7 +90,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+
 
 export default {
   data() {
@@ -102,35 +102,45 @@ export default {
   },
   methods: {
     async handleSubmit() {
-      try {
-        const response = await axios.post('http://127.0.0.1:3000/auth/login', {
-          email: this.email,
-          password: this.password
-        });
-
-        console.log('Login response:', response.data);
-
-        if (response.data.message === 'Login success') {
-          const { userType, token } = response.data.data;
-          localStorage.setItem('authToken', token);
-          axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-
-          if (userType === 'student') {
-            this.$router.push('/user/dashboard');
-          } else if (userType=== 'instructor') {
-            this.$router.push('/instructor/dashboard');
-          } else {
-            console.error('Invalid role:', userType);
-          }
-        } else {
-          console.error('Login failed:', response.data.message);
-          alert('Login failed. Please check your credentials and try again.');
+  try {
+    // Simulasi respons login sukses
+    const mockResponse = {
+      data: {
+        message: 'Login success',
+        data: {
+          userType: this.userType,
+          token: 'dummy_token'
         }
-      } catch (error) {
-        console.error('Login failed:', error);
-        alert('Login failed. Please check your credentials and try again.');
       }
+    };
+
+    // Simulasi delay agar terasa seperti real request
+    await new Promise(resolve => setTimeout(resolve, 100));
+
+    console.log('Login response:', mockResponse.data);
+
+    if (mockResponse.data.message === 'Login success') {
+      const { userType, token } = mockResponse.data.data;
+      localStorage.setItem('authToken', token);
+      // axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+
+      if (userType === 'student') {
+        this.$router.push('/user/dashboard');
+      } else if (userType === 'instructor') {
+        this.$router.push('/instructor/dashboard');
+      } else {
+        console.error('Invalid role:', userType);
+      }
+    } else {
+      console.error('Login failed:', mockResponse.data.message);
+      alert('Login failed. Please check your credentials and try again.');
     }
+  } catch (error) {
+    console.error('Login failed:', error);
+    alert('Login failed. Please check your credentials and try again.');
+  }
+}
+
   }
 };
 </script>
