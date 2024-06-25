@@ -3,7 +3,8 @@ import { RouterView } from 'vue-router'
 
 export default {
   components: {
-    RouterView // Mengimpor RouterView sebagai komponen yang diperlukan
+    RouterView, // Mengimpor RouterView sebagai komponen yang diperlukan
+ 
   }
 }
 </script>

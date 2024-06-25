@@ -2,11 +2,11 @@
     <div class="bg-gradient-to-r from-green-400 to-yellow-400">
         <div class="flex flex-1 justify-center text-center items-center">
             <div class="text-center justify-between items-start mx-8">
-                <div class="my-2 font-bold text-start">
-                    <h1>Belajar dengan</h1>
-                    <h1>Expert Terbaik</h1>
+                <div class="my-2 font-semibold sm:font-medium text-start">
+                    <h1 class="text-md sm:text-lg md:text-2xl lg:text-4xl">Belajar dengan Expert <p>Terbaik</p></h1>
+                    
                 </div>
-                <div class="my-2 font-light text-start">
+                <div class="my-2 font-light text-start text-base">
                     <h2> Yuk, ikuti pembelajaran terbaik. Tingkatkan ilmu dan <p>ketrampilan kamu dengan
                             bimbingan Expert terbak disini</p>
                     </h2>
@@ -17,9 +17,9 @@
                         aria-current="page" :class="{ 'bg-blue-500': activePage === 'LoginPage' }">Sign-in</router-link>
                 </div>
             </div>
-            <div class="h-80 overflow-hidden">
+            <div class="h-full overflow-hidden">
                 <div >
-                    <img class="w-60 h-100" src="@/assets/Iklan.png" alt="">
+                    <img class="sm:w-80 w-100 h-100" src="@/assets/Iklan.png" alt="">
                 </div>
             </div>
         </div>

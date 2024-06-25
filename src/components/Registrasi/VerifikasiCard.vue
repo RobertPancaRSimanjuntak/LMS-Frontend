@@ -5,26 +5,25 @@
                 <div class="flex flex-col items-center justify-center">
                     <div class="text-lg sm:text-xl font-semibold mb-4">Verifikasi OTP</div>
                     <div class="text-sm font-light">Enter the verification code we just sent to your email
-                        burhan1@gmail.com
+                        {{ email }}
                     </div>
                 </div>
                 <div class="text-center items-center justify-center p-4">
                     <div class="gap-2 sm:gap-4 p-4 flex text-2xl text-center items-center justify-center ">
-                        <input type="angka" id="otp1" name="otp1" maxlength="1"
+                        <input type="text" id="otp1" name="otp1" maxlength="1"
                             class="block w-8 h-8 shadow-sm text-lg border border-gray-300 rounded-md hover:bg-gray-300 text-center"
                             @keyup="moveToNext($event, 'otp2')">
-                        <input type="angka" id="otp2" name="otp2" maxlength="1"
+                        <input type="text" id="otp2" name="otp2" maxlength="1"
                             class="block w-8 h-8 shadow-sm text-lg border border-gray-300 rounded-md hover:bg-gray-300 text-center"
                             @keyup="moveToNext($event, 'otp3')">
-                        <input type="angka" id="otp3" name="otp3" maxlength="1"
+                        <input type="text" id="otp3" name="otp3" maxlength="1"
                             class="block w-8 h-8 shadow-sm text-lg border border-gray-300 rounded-md hover:bg-gray-300 text-center"
                             @keyup="moveToNext($event, 'otp4')">
-                        <input type="angka" id="otp4" name="otp4" maxlength="1"
+                        <input type="text" id="otp4" name="otp4" maxlength="1"
                             class="block w-8 h-8 shadow-sm text-lg border border-gray-300 rounded-md hover:bg-gray-300 text-center"
                             @keyup="moveToNext($event, 'otp5')">
-                        <input type="angka" id="otp5" name="otp5" maxlength="1"
-                            class="block w-8 h-8 shadow-sm text-lg border border-gray-300 rounded-md hover:bg-gray-300 text-center"
-                            >
+                        <input type="text" id="otp5" name="otp5" maxlength="1"
+                            class="block w-8 h-8 shadow-sm text-lg border border-gray-300 rounded-md hover:bg-gray-300 text-center">
                     </div>
                     <div class="flex space-x-2 justify-center">
                         <div class="text-sm font-light text-gray-400 ">
@@ -58,8 +57,22 @@ export default {
         submitVerification() {
             // Logika untuk verifikasi
             console.log('Verifikasi berhasil');
-            // Navigasi ke halaman berikutnya setelah verifikasi
-            this.$router.push({ name: 'dashboard' });
+            // Ambil jenis pengguna dari data yang disimpan selama pendaftaran atau login
+            const userType = localStorage.getItem('userType');
+
+            // Tentukan rute dashboard berdasarkan jenis pengguna
+            let dashboardRoute = '';
+            if (userType === 'student') {
+                dashboardRoute = 'DashboardStudent'; // Ganti dengan nama rute dashboard untuk student
+            } else if (userType === 'instructor') {
+                dashboardRoute = 'DashboardInstructor'; // Ganti dengan nama rute dashboard untuk instructor
+            }
+
+            if (dashboardRoute) {
+                this.$router.push({ name: dashboardRoute });
+            } else {
+                console.error('Dashboard route not found'); // Handle jika rute tidak ditemukan
+            }
         }
     }
 }

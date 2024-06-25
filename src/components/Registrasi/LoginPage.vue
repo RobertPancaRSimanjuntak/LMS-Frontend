@@ -1,10 +1,10 @@
 <template>
   <div class="flex min-h-full flex-col justify-center lg:p-0">
     <div class="p-8 rounded-lg justify-center items-center">
-
-      <div class="flex items-center justify-center text-center pb-4">
-        <img class="h-12 w-auto" src="@/assets/logo.png" alt="Logo">
-        <div class="font-bold text-2xl px-4 py-2">EduNes</div>
+ 
+      <div class="flex gap-1 items-center justify-center text-center pb-4">
+        <img class="h-16 w-auto" src="@/assets/logo.png" alt="Logo">
+        <div class="font-bold text-4xl">Eduness</div>
       </div>
 
       <!-- Logo -->
@@ -24,18 +24,18 @@
       </div>
 
       <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-        <form class="space-y-4" action="#" method="POST">
+        <form @submit.prevent="handleSubmit" class="space-y-4" action="#" method="POST">
           <div>
-            <label for="email" class="block text-sm font-semibold leading-6 text-gray-500">Email address</label>
+            <label class="block text-sm font-semibold leading-6 text-gray-500">Email address</label>
             <div>
-              <input id="email" name="email" type="email" autocomplete="email" placeholder="example@gmail.com" required
+              <input v-model="email" type="email" autocomplete="email" placeholder="example@gmail.com" required
                 class="block w-full rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
             </div>
           </div>
           <div>
             <label for="password" class="block text-sm font-semibold leading-6 text-gray-500">Password</label>
             <div>
-              <input id="password" name="password" type="password" autocomplete="current-password"
+              <input v-model="password" type="password" autocomplete="current-password"
                 placeholder="password" required
                 class="block w-full rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
             </div>
@@ -69,8 +69,8 @@
             </div>
 
             <button type="button"
-              class="text-black bg-white shadow hover:bg-gray-100 hover:text-black font-medium rounded-full text-sm py-2 px-4 my-4 inline-flex items-center">
-              <img class="h-8" src="@/assets/logo.png" alt="google">
+              class="text-black bg-white shadow hover:bg-gray-100 hover:text-black font-medium rounded-full text-sm py-2 px-4 my-4 inline-flex items-center gap-2">
+              <img class="h-6" src="@/assets/Google.png" alt="google">
               Google
             </button>
 
@@ -78,8 +78,8 @@
               <div class="mt-auto text-center text-sm text-gray-500">
                 Not an account?
                 <router-link :to="{ name: 'RegistrasiPage' }"
-                  class=" font-semibold leading-6 text-indigo-600 hover:text-indigo-500 hover:underline"
-                  aria-current="page" :class="{ 'bg-blue-500': activePage === 'LoginPage' }">Register</router-link>
+                  class=" font-semibold leading-6 text-[#564FFD] hover:text-indigo-500 hover:underline text-sm"
+                  aria-current="page" :class="{ 'bg-blue-500': activePage === 'LoginPage' }">Sign up</router-link>
               </div>
             </div>
           </div>
@@ -90,11 +90,47 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   data() {
     return {
-      userType: 'student' // Default to student login
+      userType:'student',
+      email: '',
+      password: '',
     };
+  },
+  methods: {
+    async handleSubmit() {
+      try {
+        const response = await axios.post('http://127.0.0.1:3000/auth/login', {
+          email: this.email,
+          password: this.password
+        });
+
+        console.log('Login response:', response.data);
+
+        if (response.data.message === 'Login success') {
+          const { userType, token } = response.data.data;
+          localStorage.setItem('authToken', token);
+          axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+
+          if (userType === 'student') {
+            this.$router.push('/user/dashboard');
+          } else if (userType=== 'instructor') {
+            this.$router.push('/instructor/dashboard');
+          } else {
+            console.error('Invalid role:', userType);
+          }
+        } else {
+          console.error('Login failed:', response.data.message);
+          alert('Login failed. Please check your credentials and try again.');
+        }
+      } catch (error) {
+        console.error('Login failed:', error);
+        alert('Login failed. Please check your credentials and try again.');
+      }
+    }
   }
 };
 </script>

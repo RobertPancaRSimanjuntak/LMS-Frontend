@@ -1,21 +1,18 @@
 <template>
   <div class="w-full h-screen flex flex-row">
     <!-- Sidebar Component -->
-    <div :class="['main-sidebar', { 'main-sidebar-hidden': !sidebarVisible, 'sm:block': true }]">
+    <div class="flex z-50" :class=" ['main-sidebar', { 'main-sidebar-hidden': !sidebarVisible, 'sm:block': true }]">
       <MainSidebar @menu-selected="updatePageTitle" />
     </div>
 
     <!-- Main Content -->
-    <div class="w-full  h-full flex flex-col flex-1 ">
+    <div class="w-full h-full flex flex-col flex-1 bg-white">
       <MainHeader :pageTitle="pageTitle"  />
-      <div class="h-full overflow-auto">
-        <div class="bg-blue">
+      <div class="h-full overflow-auto bg-[#F5F7FA]">
+        <div>
           <router-view></router-view> 
         </div>        
       </div>
-
-      <!-- <CourseCard/> -->
-      <!-- <CourseCard :course="selectedCourse" /> -->
     </div>
 
 
@@ -23,17 +20,15 @@
 </template>
 
 <script>
-import MainSidebar from '@/components/Sidebar/Sidebar.vue';
-import MainHeader from '@/components/Header/Header.vue';
-// import CourseCard from '@/components/CourseCard.vue';
+import MainSidebar from '@/components/Sidebar/SidebarInstructor.vue';
+import MainHeader from '@/components/Header/HeaderDashboard.vue';
 
 export default {
-  name: 'App',
+  // name: 'App',
   components: {
     MainSidebar,
     MainHeader,
   },
-  // CourseCard
   data() {
     return {
       pageTitle: 'Dashboard',
