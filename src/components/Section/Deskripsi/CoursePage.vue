@@ -1,6 +1,9 @@
 <template>
     <div class="flex flex-col space-y-8 mr-8">
         <div class="flex-col justify-start items-start gap-8 inline-flex">
+            <div class="text-lg font-semibold">
+                Struktur Data dan Algoritma
+            </div>
             <div class="relative w-full">
                 <div class="flex flex-wrap sm:justify-start justify-center">
                     <div class="flex flex-col border border-black text-center">
@@ -13,13 +16,13 @@
                         <div
                             class=" w-24 sm:w-40 border-b border-black  text-black text-md font-normal font-sans leading-loose">
                             Video</div>
-                        <div class=" text-black text-md font-normal font-sans leading-loose">1 jam</div>
+                        <div class=" text-black text-md font-normal font-sans leading-loose">2 jam</div>
                     </div>
                     <div class="flex flex-col border border-black text-center">
                         <div
                             class="w-24 sm:w-40 border-b border-black  text-black text-md font-normal font-sans leading-loose">
                             Kuis</div>
-                        <div class=" text-black text-md font-normal font-sans leading-loose">1 jam</div>
+                        <div class=" text-black text-md font-normal font-sans leading-loose">4 jam</div>
                     </div>
                     <div class="flex flex-col border border-black text-center">
                         <div
@@ -29,47 +32,61 @@
                     </div>
                 </div>
             </div>
-            <div>
-                <span class="text-black text-lg font-bold font-sans leading-loose">Tentang Kelas<br /></span>
-                <span class="text-black text-md font-normal font-sans leading-loose">
-                    Dalam kelas online ini kamu akan belajar dasar-dasar HTML. HTML merupakan pengetahuan umum yang
-                    harus
-                    dimiliki oleh setiap orang yang menggeluti bidang web programming. Dalam kelas ini, kamu akan
-                    belajar
-                    mulai dari bagaimana konsep dasar dan cara kerja dari HTML serta bagaimana penggunaannya dalam
-                    membangun
-                    sebuah tampilan website.<br /><br />
-                </span>
-                <span class="text-black text-lg font-bold font-sans leading-loose">Tujuan Umum dan Khusus
-                    Pelatihan<br /></span>
-                <span class="text-black text-md font-normal font-sans leading-loose">
-                    Di akhir pelatihan, peserta dapat mengenal HTML<br />
-                    Dapat mengetahui dasar-dasar pemrograman<br />
-                    Dapat menginstal software yang dibutuhkan dalam belajar pemrograman<br />
-                    Dapat menjelaskan dasar-dasar pemrograman<br />
-                </span>
-                <span class="text-black text-md font-normal font-sans leading-loose"><br /></span>
-                <span class="text-black text-lg font-bold font-sans leading-loose">Silabus <br /></span>
-                <span class="text-black text-md font-normal font-sans leading-loose">
-                    Topik 1: Perkenalan Tentang Web Development<br />
-                    Topik 2: Hal Dasar yang Perlu Kamu Tahu tentang HTML<br />
-                    Topik 3: Lebih Dalam dan Mengenal Semantic Syntax<br />
-                    Topik 4: Tabel dan Formulir<br />
-                    Jenis pekerjaan Kelas ditujukan bagi siapa saja yang ingin berkarir menjadi seorang programmer<br />
-                </span>
-                <span class="text-black text-lg font-bold font-sans leading-loose"><br /> Peralatan Belajar
-                    Siswa<br /></span>
-                <span class="text-black text-md font-normal font-sans leading-loose">
-                    Siswa wajib memiliki akses internet melalui komputer yang menggunakan Windows/Mac/Linux<br />
-                    Spesifikasi minimal komputer milik siswa:<br />
-                    Sistem operasi : Windows, Linux, atau MacOS.<br />
-                    Prosesor : Intel Dual Core (Rekomendasi Core i3 ke atas).<br />
-                    RAM : 1GB (Rekomendasi 2GB).<br />
-                    Resolusi layar : 1366 x 768 (Rekomendasi Full HD 1920 x 1080)<br />
-                    Software:<br />
-                    Browser (tidak ada preferensi khusus)<br />
-                    Text editor (tidak ada preferensi khusus)
-                </span>
+            <div class="flex flex-col gap-4">
+                <div>
+                    <h2 class="text-black text-lg font-bold font-sans leading-loose">Tentang Kelas<br /></h2>
+                    <span class="text-black text-md font-normal font-sans leading-loose">
+                        Dalam kelas ini, kamu akan diperkenalkan pada struktur data dan algoritma. Materi ini krusial
+                        dalam
+                        pemecahan masalah komputasional dan sangat relevan dalam pengembangan aplikasi dan pemrograman.
+                        Kamu
+                        akan mempelajari bagaimana menerapkan struktur data yang tepat dan algoritma yang efisien untuk
+                        merancang solusi yang optimal terhadap berbagai masalah teknis.<br />
+                    </span>
+                </div>
+                <div>
+                    <h2 class="text-black text-lg font-bold font-sans leading-loose">Silabus<br /></h2>
+                    <h3 class="text-black text-md font-medium font-sans leading-loose"> Topik 1: Pengenalan Algoritma
+                        dan
+                        Pemrograman</h3>
+                    <ul class="text-black text-md font-normal font-sans leading-loose custom-list">
+                        <li>Pengertian Algoritma</li>
+                        <li>Sejarah Algoritma</li>
+                        <li>Pseudocode</li>
+                        <li>Pengenalan Algoritma</li>
+                    </ul>
+                    <h3 class="text-black text-md font-medium font-sans leading-loose"> Topik 2: Struktur Data</h3>
+                    <ul class="text-black text-md font-normal font-sans leading-loose custom-list">
+                        <li>Pengertian Data</li>
+                        <li>Struktur Data</li>
+                        <li>Karakter</li>
+                        <li>Numerik</li>
+                        <li>Boolean</li>
+                        <li>Array dan Object</li>
+                    </ul>
+                    <h3 class="text-black text-md font-medium font-sans leading-loose"> Topik 3: Latihan Menerapkan
+                        Algoritma dan Pemrograman</h3>
+                    <ul class="text-black text-md font-normal font-sans leading-loose custom-list">
+                        <li>Percabangan</li>
+                        <li>Perulangan</li>
+                        <li>Fungsi dan Prosedur</li>
+                        <li>Rekursif</li>
+                        <li>Stack dan Queue</li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="text-black text-lg font-bold font-sans leading-loose"> Peralatan Belajar
+                        Siswa</h2>
+                    <h3 class="text-black text-md font-normal font-sans leading-loose">
+                        Siswa diharapkan memiliki akses internet melalui komputer dengan sistem operasi Windows, Mac,
+                        atau
+                        Linux. Spesifikasi minimal komputer termasuk prosesor Intel Dual Core (disarankan Core i3 ke
+                        atas),
+                        RAM 1GB (disarankan 2GB), dan resolusi layar 1366 x 768 (disarankan Full HD 1920 x 1080).
+                        Software
+                        yang dibutuhkan termasuk browser dan text editor tanpa preferensi khusus.
+                    </h3>
+                </div>
             </div>
         </div>
         <div class="flex justify-end pb-12">
@@ -91,5 +108,7 @@
 </script>
 
 <style scoped>
-/* Add any additional styling here if needed */
+.custom-list {
+    list-style-type: lower-alpha;
+}
 </style>

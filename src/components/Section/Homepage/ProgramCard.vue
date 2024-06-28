@@ -1,14 +1,5 @@
 <template>
     <div class="justify-center items-center m-4">
-      <!-- <div class="toggle flex mb-4 justify-between text-center items-center">
-        <div>
-          <h1 class="sm:text-lg text-md font-bold">Best Courses</h1>
-        </div>
-        <div @click="toggleShowAll" class="cursor-pointer border border-gray-200 text-gray-500 rounded-full p-2 text-sm font-light">
-          All Kategories
-        </div>
-      </div> -->
-      <!-- Wrapper untuk kartu-kartu -->
       <div :class="gridClass" class="grid gap-4 justify-center items-center">
         <!-- Course Cards -->
         <div v-for="(course, id) in displayedCourse" :key="id" class="flex-shrink-0">
@@ -22,6 +13,7 @@
               <div class="flex flex-col space-y-2">
                 <!-- <p class="text-sm tracking-tight text-gray-400 px-4 truncate">{{ course.deskripsi }}</p> -->
                 <p class="px-4 font-semibold sm:text-md text-sm text-gray-700">{{ course.title }}</p>
+                <p class="px-4 font-light sm:text-sm text-xs text-gray-700">{{ course.sum }} courses</p>
               </div>
               <div class="w-full h-auto px-4 ">
                 <ProgressBar class="h-auto" :progress="course.progress" />
@@ -42,7 +34,7 @@
   </template>
   
   <script>
-  import course from '@/assets/course.png'
+  import course from '@/assets/Program/Program.png'
   import ProgressBar from '@/components/Progres/ProgressBio';
   
   export default {
@@ -57,8 +49,9 @@
           {
             id: 1,
             image: course,
-            title: 'Pemrograman Web',
-            progress: 40,
+            title: 'Algorithm and Data Structure Class',
+            progress: 0,
+            sum: 3 ,
           },
           //menambah program
         ]
@@ -86,7 +79,7 @@
       },
       gridClass() {
         return {
-          'grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5': true,
+          'grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4': true,
           'grid-rows-1 sm:grid-rows-2 md:grid-rows-3 lg:grid-rows-5': !this.showAll
         };
       }

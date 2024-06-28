@@ -47,7 +47,7 @@
               My Program
             </router-link>
             
-            <router-link to="/browser" class="flex items-center cursor-pointer p-4 pr-4 hover:bg-blue-500"
+            <router-link to="/user/browser" class="flex items-center cursor-pointer p-4 pr-4 hover:bg-blue-500"
               :class="{ 'bg-blue-500': activePage === 'BrowseProgram' }">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor" class="w-5 h-5 mr-4">
@@ -137,7 +137,7 @@ export default {
       if (to.path.includes('/user/myclass')) {
         this.activePage = 'MyClass';
         this.updatePageTitle('My Class');
-      }else if (to.path.includes('/browser')) {
+      }else if (to.path.includes('/user/browser')) {
         this.activePage = 'BrowseProgram';
       }else if (to.path.includes('/setting')) {
         this.activePage = 'SettingPage';

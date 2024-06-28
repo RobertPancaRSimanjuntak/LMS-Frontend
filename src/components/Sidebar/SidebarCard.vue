@@ -13,7 +13,13 @@
                     <FilterOverview />
                 </div>
                 <div class="w-full">
-                    <FilterCard />
+                    <FilterAlgoritma />
+                </div>
+                <div class="w-full">
+                    <FilterData />
+                </div>
+                <div class="w-full pb-8">
+                    <FilterPenerapan />
                 </div>
             </div>
         </div>
@@ -21,13 +27,17 @@
 </template>
 
 <script>
-import FilterCard from '@/components/Section/MyClass/Filter/FilterCard.vue';
+import FilterAlgoritma from '@/components/Section/MyClass/Filter/FilterAlgoritma.vue';
+import FilterData from '@/components/Section/MyClass/Filter/FilterData.vue';
+import FilterPenerapan from '@/components/Section/MyClass/Filter/FilterPenerapan.vue';
 import FilterOverview from '@/components/Section/MyClass/Filter/FilterOverview.vue';
 
 export default {
     components: {
-        FilterCard,
+        FilterAlgoritma,
         FilterOverview,
+        FilterData,
+        FilterPenerapan,
     },
     data() {
         return {
@@ -40,7 +50,7 @@ export default {
    
     methods: {
         goToDashboard() {
-            this.$router.back();
+            this.$router.push({name:'MyClass'});
         },
 
         updatePageTitle(title) {

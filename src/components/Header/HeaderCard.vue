@@ -1,7 +1,7 @@
 <template>
   <div class="main-header flex justify-between items-center text-center p-4 my-1">
     <!-- Nama Halaman (Dashboard) di Sisi Kanan -->
-    <div class="text-xl font-semibold">Pengenalan Web</div>
+    <div class="text-xl font-semibold">Course Overview</div>
     <div class="flex space-x-4">
       <div class="search flex items-center border border-gray-300 rounded-md">
         <!-- Hanya menampilkan ikon pencarian saat ukuran layar sm -->

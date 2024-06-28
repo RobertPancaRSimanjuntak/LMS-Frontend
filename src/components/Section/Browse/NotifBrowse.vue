@@ -1,50 +1,25 @@
 <template>
-    <div class="">
-        <div class="sm:flex-row flex flex-col gap-12 max-w-screen m-12">
-            <!-- Form Section -->
-            <form @submit.prevent="handleSubmit" class="flex flex-col space-y-4 w-full ">
-                <!-- Full Name Section -->
-                <div>
-                    <label class="mb-3 block text-sm font-medium text-black " for="fullName">Full Name</label>
-                    <div class="search flex space-x-2 items-center border border-gray-300 rounded-md">
-                        <input
-                            class="w-full rounded bg-gray py-2 px-2 text-smfocus:border-primary focus-visible:outline-none"
-                            type="text" name="fullName" id="fullName" placeholder="fullname" />
+    <div class="p-8 flex items-center justify-center">
+        <div class="form-container bg-white w-full sm:w-1/2 rounded-lg shadow-sm">
+            <div class="p-12">
+                <div class="flex flex-col gap-8">
+                    <h1 class="text-lg font-semibold">Algorithm and Data Structure</h1>
+                    <ol class="text-sm text-gray-600 custom-list">
+                        <li>Bersedia mengikuti dan menjalani pemebelajaran 6 bulan dengan kehadiran minimal 80% dari keseluruhan perkuliahan</li>
+                        <li>Memverifikasi kelengkapan data pengguna.</li>
+                        <li>Sudah terdaftar sesuai universitas terdaftar</li>
+                    </ol>
+                    <div class="checkbox-container">
+                        <input type="checkbox" v-model="agreement" id="agreement">
+                        <label for="agreement" class="text-sm text-gray-600">Saya setuju dengan semua syarat dan ketentuan yang diberikan.</label>
+                    </div>
+                    <div class="flex justify-center">
+                        <button :disabled="!agreement" @click="handleSubmit" class="p-1 px-12 bg-blue-500 text-white rounded-lg disabled:bg-blue-200">Submit</button>
                     </div>
                 </div>
-
-                <!-- Email Address Section -->
-                <div class="mb-5.5">
-                    <label class="mb-3 block text-sm font-medium text-black" for="emailAddress">Email Address</label>
-                    <div class="search flex space-x-2 items-center border border-gray-300 rounded-md">
-                        <input
-                            class="w-full rounded bg-gray py-2 px-2 text-sm focus:border-primary focus-visible:outline-none"
-                            type="email" name="emailAddress" id="emailAddress" placeholder="email" />
-                    </div>
-                </div>
-                <!-- Phone Number Section -->
-                <div>
-                    <label class="mb-3 block text-sm font-medium text-black" for="phoneNumber">Phone Number</label>
-                    <input
-                        class="w-full rounded border border-stroke bg-gray py-2 px-2 text-sm focus:border-primary focus-visible:outline-none "
-                        type="text" name="phoneNumber" id="phoneNumber" placeholder="Phone Number" />
-                </div>
-                <!-- submit -->
-                <div type="submit" class="items-center justify-center text-center pt-4">
-                    <button class="py-2 px-8  bg-blue-400 rounded-lg">Submit</button>
-                </div>
-            </form>
-
-            <!-- Content Section -->
-            <div class="my-8 rounded-xl flex flex-col justify-start items-start gap-4">
-                <div class="w-full text-black text-md font-semibold font-sans leading-normal">Pendaftaran Program Design
-                    UI/UX Ditutup 16 Agustus 2024 </div>
-                <div class="full text-black text-sm font-normal font-['Inter'] leading-normal">Dapatkan akses ke demo
-                    yang
-                    berisi konten program & sesi bimbingan berkualitas tinggi setelah Anda mengisi formulir ini.</div>
             </div>
+            <PopUp v-if="showPopup" @close="showPopup = false" />
         </div>
-        <PopUp v-if="showPopup" @close="showPopup = false" />
     </div>
 </template>
 
@@ -54,19 +29,39 @@ import PopUp from '@/components/Section/Browse/PopUp.vue';
 export default {
     components: {
         PopUp,
-
     },
 
     data() {
         return {
+            agreement: false,
             showPopup: false
         };
     },
     methods: {
         handleSubmit() {
-            // Handle form submission here
             this.showPopup = true;
         }
     }
 }
 </script>
+
+<style>
+html, body {
+    height: 100%;
+}
+
+.custom-list {
+  counter-reset: item;
+}
+
+.custom-list li {
+  counter-increment: item;
+  list-style: none;
+}
+
+.custom-list li::before {
+  content: counter(item) ". ";
+  font-weight: lighter;
+  color: #333;
+}
+</style>

@@ -30,7 +30,7 @@ export default {
     components: {
         CourseCard,
         IklanDash,
-        // EditBio,
+        
         ProgresCard,
     },
     data() {

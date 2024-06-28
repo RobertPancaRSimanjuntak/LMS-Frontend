@@ -78,7 +78,7 @@
       },
       gridClass() {
         return {
-          'grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5': true,
+          'grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4': true,
           'grid-rows-1 sm:grid-rows-2 md:grid-rows-3 lg:grid-rows-5': !this.showAll
         };
       }

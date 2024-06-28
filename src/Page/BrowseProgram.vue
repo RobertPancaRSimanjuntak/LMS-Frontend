@@ -22,7 +22,7 @@ export default {
     computed: {
     showBrowseCard() {
       // Hanya tampilkan BrowseCard jika route adalah '/browse'
-      return this.$route.path === '/browser';
+      return this.$route.path === '/user/browser';
     }
   }
 }

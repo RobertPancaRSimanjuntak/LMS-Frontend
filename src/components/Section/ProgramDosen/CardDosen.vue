@@ -59,7 +59,7 @@ export default {
           image: course,
           //deskripsi: 'Reiki Level I, II and Master/Teacher Program Reiki Level I, II and Master/Teacher ProgramReiki Level I, II and Master/Teacher Program ',
           title: 'Pemrograman Web',
-          progress: 40,
+          progress: 0,
         },
         {
           id: 2,
@@ -107,7 +107,7 @@ export default {
     },
     gridClass() {
       return {
-        'grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5': true,
+        'grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4': true,
         'grid-rows-2 sm:grid-rows-4 md:grid-rows-6 lg:grid-rows-10': !this.showAll
       };
     }

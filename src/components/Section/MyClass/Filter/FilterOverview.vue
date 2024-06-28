@@ -4,7 +4,7 @@
             <!-- Tombol untuk menampilkan opsi filter -->
             <div class="flex justify-between cursor-pointer items-center text-center mx-2 sm:mx-4 "
                 @click="toggleFilterMenu">
-                <div class=" text-indigo-600 text-[12px] md:text-[14px] lg:text-[16px] font-medium font-sans">Course Overview</div>
+                <div class=" text-[#292929] text-[12px] md:text-[14px] lg:text-[16px] font-semibold font-sans">Course Overview</div>
                 <div :class="{ 'rotate-180': showFilterMenu }" class="hidden sm:block">
                     <i class="fa-solid fa-chevron-down text-white p-1 rounded-full bg-[#292929]"></i>
                 </div>
@@ -18,8 +18,8 @@
                  class="flex justify-between items-center w-full  p-4 hover:bg-blue-200"   
                     :class="{ 'bg-blue-200': activePage === 'CoursePage'}">
                     <div class="flex space-x-2 items-center text-center ">
-                        <i class="fa-regular fa-file text-gray-500 sm:text-xl text-md "></i>
-                        <div class="text-gray-500 text-[12px] md:text-[14px] font-sans">Preview</div>
+                        <i class="fa-regular fa-file text-[#564FFD] sm:text-xl text-md "></i>
+                        <div class="text-black text-[12px] md:text-[14px] font-sans">Preview</div>
                     </div>
                     <div class="hidden sm:block  w-6 h-6 flex-shrink-0">
                         <ProgressBar :progress="progress2" />
@@ -46,12 +46,6 @@ export default {
             activePage: 'CoursePage',
             pageTitle: 'Preview',
             progress1: 100, progress2: 100, progress3: 20,
-
-            items: [
-                { id: 1, name: 'Item 1', category: 'webdev' },
-                { id: 2, name: 'Item 2', category: 'mobapp' },
-                { id: 3, name: 'Item 3', category: 'cyber' },
-            ]
         };
     },
     computed: {

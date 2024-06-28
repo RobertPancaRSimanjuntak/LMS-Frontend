@@ -40,7 +40,7 @@ export default {
   methods: {
     goToDashboard() {
       // Mengarahkan pengguna ke halaman dashboard
-      this.$router.push({ path: '/browser' });
+      this.$router.push({ path: '/user/browser' });
     }
   }
 }
